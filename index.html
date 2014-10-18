@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile-1.4.0-rc.1.js"></script>
+  
+  
+  
+	<script src='js/jquery.zoom.js'></script>
+		<script src='js/jquery.zoom.min.js'></script>
+  <style>
+		/* styles unrelated to zoom */
+		* { border:0; margin:0; padding:0; }
+		
+
+		/* these styles are for the demo, but are not required for the plugin */
+		.zoom {
+			display:inline-block;
+			position: relative;
+		}
+		
+		/* magnifying glass icon */
+		.zoom:after {
+			content:'';
+			display:block; 
+			width:33px; 
+			height:33px; 
+			position:absolute; 
+			top:0;
+			right:0;
+			background:url(icon.png);
+		}
+
+		.zoom img {
+			display: block;
+		}
+
+		.zoom img::selection { background-color: transparent; }
+
+		#ex2 img:hover { cursor: url(grab.cur), default; }
+		#ex2 img:active { cursor: url(grabbed.cur), default; }
+	</style>
+  <script>
+function ajaxFunction(){
+
+
+
+
+
+ var ajaxRequest;  
+ try{
+   ajaxRequest = new XMLHttpRequest();
+ }catch (e){
+   try{
+      ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+   }catch (e) {
+      try{
+         ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+      }catch (e){
+         alert("Your browser broke!");
+         return false;
+      }
+   }
+ }
+ ajaxRequest.onreadystatechange = function(){
+   if(ajaxRequest.readyState == 4){
+      var ajaxDisplay = document.getElementById('ajaxdiv');
+      ajaxDisplay.innerHTML = ajaxRequest.responseText;
+   }
+ }
+var username = document.getElementById('sample').value;
+var id_num = document.getElementById('id_num').value;
+var full_name = document.getElementById('full_name').value;
+var course = document.getElementById('course').value;
+var year = document.getElementById('year').value;
+var password = document.getElementById('password').value;
+
+ var queryString = "?sample=" + sample ;
+ queryString +=  "&id_num=" + id_num + "&full_name=" + full_name +  "&course=" + course + "&year=" + year + "&password=" + password ;
+ ajaxRequest.open("GET", "registration.php" + 
+                              queryString, true);
+ ajaxRequest.send(null); 
+}
+//-->
+  </script>
+  
+  
+  
+  
+    <script>
+  $(document).ready(function(){
+  
+
+  
+  
+$('#showpe').click(function(){
+$('#pe').slideToggle(300);
+ $('#pe').show();
+});    
+    
+  
+  
+$('#showuniform').click(function(){
+$('#uniform').slideToggle(300);
+ $('#uniform').show();
+});    
+  
+  
+$('#showmanual').click(function(){
+$('#manual').slideToggle(300);
+ $('#manual').show();
+});  
+$('#closemanual').click(function(){
+ $('#manual').slideUp();
+ $('#manual').hide(300);
+
+});    
+  
+  
+$('#imponote').click(function(){
+$('#importantnote').slideToggle(300);
+ $('#importantnote').show();
+});
+    
+  
+
+  
+
+$('#showcollegelife').click(function(){
+$('#collegelife').slideToggle(300);
+ $('#collegelife').show();
+});
+  
+ 
+$('#createaccount').click(function(){
+$('#DIVLOGIN').hide();
+$('#txtlogin').hide();
+$('#DIVREGISTRATION').slideToggle(300);
+$('#DIVREGISTRATION').show();
+$('#txtregistration').show();
+});
+ 
+
+$('#cancel').click(function(){
+$('#DIVREGISTRATION').hide();
+$('#txtregistration').hide();
+$('#DIVLOGIN').slideToggle(300);
+$('#DIVLOGIN').show();
+$('#txtlogin').show();
+}); 
+
+
+
+
+$('#clickboxoffices').click(function(){
+$('#boxoffices').slideToggle(200);
+$('#boxoffices').show();
+}); 
+
+$('#clickboxhandbook').click(function(){
+$('#boxhandbook').slideToggle(200);
+$('#boxhandbook').show();
+}); 
+
+
+$('#showsuccessful').click(function(){
+$('#ex3').slideToggle(300);
+ $('#ex3').show();
+});
+
+
+    });
+	
+	
+	
+	$( document ).on( "pageinit", function() {
+    $( ".photopopup" ).on({
+        popupbeforeposition: function() {
+            var maxHeight = $( window ).height() - 60 + "px";
+            $( ".photopopup img" ).css( "max-height", maxHeight );
+        }
+    });
+});
+	
+	
+  </script>
+  
+  
+<script>
+		$(document).ready(function(){
+			$('#ex1').zoom();
+			$('#ex2').zoom({ on:'grab' });
+			$('#ex3').zoom({ on:'click' });			 
+			$('#ex4').zoom({ on:'toggle' });
+		});
+	</script>
+  <script>
+  
+ $( document ).on( "pagecreate", "#mainpage", function() {
+    $( document ).on( "swipeleft swiperight", "#mainpage", function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $( ".ui-page-active" ).jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swipeleft" ) {
+                $( "#panel" ).panel( "open" );
+            }
+			  if ( e.type === "swiperight" ) {
+                $( "#setting" ).panel( "open" );
+            }
+        }
+    });
+});
+
+
+function gg(){
+if (window.navigator.onLine) {
+ window.open('http://www.gcians.uphero.com/login.php');
+} else {
+  alert("Offline")
+}
+}
+</script>
+  
+  
+  
+
+  
+  		<style>
+#mainpage{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+dl { font-family: "Times New Roman", Times, serif; padding: 1em; }
+dt { font-size: 2em; font-weight: bold; }
+dt span { font-size: .5em; color: #777; margin-left: .5em; }
+dd { font-size: 1.25em; margin: 1em 0 0; padding-bottom: 1em; border-bottom: 1px solid #eee; }
+.back-btn { float: right; margin: 0 2em 1em 0; }
+
+
+		</style>	
+  
+<style>
+.text-blockUI-container {
+    position: relative;
+}
+
+.text-blockUI {
+    position: relative;
+    -webkit-animation: fadeInOut 3s infinite;
+    animation: fadeInOut 3s infinite;
+}
+
+.text-blockUI-2 {
+    opacity: 0;
+  margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    left: 0;
+    -webkit-animation: fadeInOut 3s 3s infinite;
+    animation: fadeInOut 3s 3s infinite;
+}
+
+@-webkit-keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        top: -.5em;
+    }
+    25% {
+        opacity: 1;
+        top: 0;
+    }
+    75% {
+        opacity: 0;
+        top: .5em;
+    }
+    100% {
+        opacity: 0;
+        top: .5em;
+    }
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        top: -.5em;
+    }
+    25% {
+        opacity: 0;
+        top: 0;
+    }
+    75% {
+        opacity: 0;
+        top: .5em;
+    }
+    100% {
+        opacity: 0;
+        top: .5em;
+    }
+}
+
+
+
+
+
+
+
+
+#img3 {-webkit-animation: anim2 ease-in-out 3s infinite alternate; }
+@-webkit-keyframes anim2
+{
+   from { -webkit-transform: scale(0.7)   }
+
+   
+}
+</style>
+  
+  
+  </head>
+<body  >
+  <div data-role="page" id="mainpage" >
+<!-- this panel -->
+    <div data-role="panel" id="panel" data-position="right" data-display="overlay" style= "background: #2d3e50;">
+	  <a data-role="button" onclick="gg()"  data-ajax="false"  data-icon="cloud" data-theme="f">ONLINE</a>
+	  <div data-role="collapsible" data-collapsed-icon="location" data-expanded-icon="carat-u" data-mini="true" data-theme="f">
+    <h3>NEARBY PLACES</h3>
+    <ul data-role="listview">
+        <li>  <a data-role="button" href="nearby.html" data-ajax="false"   data-icon="carat-l" data-theme="f">SCHOOLS</a></li>
+        <li><a data-role="button" href="restaurant.html" data-ajax="false"   data-icon="carat-l" data-theme="f">RESTAURANTS</a></li>
+        <li><a data-role="button" href="book.html" data-ajax="false"   data-icon="carat-l" data-theme="f">BOOK STORES</a></li>
+		  <li><a data-role="button" href="malls.html" data-ajax="false"   data-icon="carat-l" data-theme="f">MALLS</a></li>
+    </ul>
+</div>
+	  	
+		  <a href="#calendar" data-role="button"  data-icon="calendar " class="btn-icon-right"data-theme="f" >CALENDAR</a>
+
+<a href="#developer" data-role="button" data-icon="user " class="btn-icon-right"data-theme="f">ABOUT DEVELOPER</a>
+	 
+
+	</div>
+	
+	
+	     <!--SETTINGS -->
+
+	
+<!-- this end of panel -->	
+
+
+
+	
+<!--this menu -->
+    <div data-role="header" id="head">
+    <a ></a>
+	  <div align="center">
+	  <img src="img/gcosws.png" height="8%" width="70%">
+      </div>
+	  <a data-iconpos="notext" href="#panel" data-role="button" data-theme="b" data-icon="flat-menu"></a>
+    </div>
+
+<div data-role="content" role="main"  >
+<div align="center" style="margin-top:10%">
+		<img src="img/newbanner.png" width="100%" height="24%"/>
+</div>	
+
+<div id="clickboxsws" class="ui-body"  style="background: #2d3e50;  border-radius: 6px; ">
+	
+		
+	
+			<div class="text-blockUI-container" align="center">
+    <span  class="text-blockUI" style="color: white; font-weight:900;  font-size: 15px">"RISING ABOVE AND BEYOND EXCELLENCE"</span>
+	
+  
+
+</div>
+	
+	
+		
+			<br />
+			
+			<br />
+		<div data-role="navbar" align="center">		
+					<ul >
+			
+					<li  >
+						<a href="#popupBasic1" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-theme="a" style="border-radius: 50px;"data-transition="slidedown"><img src="img/v.png" width="60%"  ></a>
+<div data-role="popup" id="popupBasic1" class="ui-content" data-theme="a" style="max-width:350px;">
+  <p style="text-align: justify;"><strong>OUR VISION </strong> <br />An arm of Gordon College reaching greater heights of quality student services through creative and innovative programs responsive to the needs and call of the community upholding students’ rights and welfare.</p>
+</div>
+
+					</li>
+					<li >
+						<a href="#popupBasic2" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline"  data-theme="a" style="border-radius: 50px;" data-transition="slidedown"><img src="img/m.png" width="60%" ></a>
+<div data-role="popup" id="popupBasic2" class="ui-content" data-theme="a" style="max-width:350px;">
+  <p><strong>OUR MISSION</strong><br /> To advance the culture of excellence among Gordon College students imbued with integrity, justice, love, and peace.</p>
+</div>
+					</li>
+					<li >
+<a href="#popupBasic3" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline "   style="border-radius: 50px;" data-theme="a"  data-transition="slidedown" data-theme="transparent"><img src="img/g.png" width="60%"  ></a>
+<div data-role="popup" id="popupBasic3" class="ui-content" data-theme="a" style="max-width:350px;">
+  <p style="text-align: justify;"><strong>OUR GOALS</strong>
+<br />
+* Provide students with relevant projects and activities to strengthen the culture of excellence that would bring out students’ potentials.
+<br />
+* Instill cultural awareness through Culture and Arts Programs.
+<br />
+* Develop projects that would advance students’ concerns through External Linkages.
+<br />
+* Strengthen the Sports Development Program by providing trainings and opportunities to challenge own strength.
+<br />
+* Provide quality Health Care Program through a responsive Medical Team.
+<br />
+* Uphold Freedom of Expression through responsible acts of journalism.
+<br />
+* Create an academic community where DISCIPLINE, COURTESY, HONESTY and INTERGRITY are observed.
+</p>
+					</div>
+					</li >
+				
+					</ul>
+
+	</div>
+		
+		
+		
+		
+		
+		
+		</div>
+	
+		
+
+
+
+
+	
+	
+	
+
+
+
+
+<br/>
+
+</div>
+
+<!--this end of menu -->	
+				
+<!--this footer -->	
+<div   data-role="footer" data-theme="transparent" style="border:0" data-position="fixed">
+<div data-role="navbar">		
+					<ul >
+			
+					<li  >
+						<a href="#offices"   style="background: rgb(48,201,56); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(48,201,56,1) 0%, rgba(40,168,46,1) 50%, rgba(34,145,47,1) 51%, rgba(23,96,26,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(48,201,56,1)), color-stop(50%,rgba(40,168,46,1)), color-stop(51%,rgba(34,145,47,1)), color-stop(100%,rgba(23,96,26,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* IE10+ */
+background: linear-gradient(135deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30c938', endColorstr='#17601a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+" align="center"><img src="img/nearby.png" width="57%"  height="11%"/></a>
+					</li>
+					<li >
+						<a href="#studentmanual"  style=" 	background: rgb(48,201,56); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(48,201,56,1) 0%, rgba(40,168,46,1) 50%, rgba(34,145,47,1) 51%, rgba(23,96,26,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(48,201,56,1)), color-stop(50%,rgba(40,168,46,1)), color-stop(51%,rgba(34,145,47,1)), color-stop(100%,rgba(23,96,26,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* IE10+ */
+background: linear-gradient(135deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30c938', endColorstr='#17601a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+
+
+" align="center"><img src="img/quake.png" width="57%"  height="11%"/></a>
+					</li>
+					<li >
+						<a href="#survivalkit"   style="background: rgb(48,201,56); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(48,201,56,1) 0%, rgba(40,168,46,1) 50%, rgba(34,145,47,1) 51%, rgba(23,96,26,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(48,201,56,1)), color-stop(50%,rgba(40,168,46,1)), color-stop(51%,rgba(34,145,47,1)), color-stop(100%,rgba(23,96,26,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(-45deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* IE10+ */
+background: linear-gradient(135deg,  rgba(48,201,56,1) 0%,rgba(40,168,46,1) 50%,rgba(34,145,47,1) 51%,rgba(23,96,26,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30c938', endColorstr='#17601a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+"><img src="img/weather.png" width="56%"  height="11%"/></a>
+					</li >
+				
+					</ul>
+</div>
+
+</div>
+<!--this end of footer -->			
+  </div>
+
+
+  
+    <!--calendar -->
+<div data-role="page" id="calendar">
+<div data-role="header" data-position="fixed" >
+    <a></a>
+      <h1></h1>
+     <a href="#mainpage"  data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main"  data-theme="g">
+<img src="img/calendar1.png" width="100%">
+<img src="img/calendar2.png" width="100%">
+<img src="img/calendar3.png" width="100%">
+<img src="img/calendar4.png" width="100%">
+<img src="img/calendar5.png" width="100%">
+<img src="img/calendar6.png" width="100%">
+<img src="img/calendar7.png" width="100%">
+<img src="img/calendar8.png" width="100%">
+<img src="img/calendar9.png" width="100%">
+<img src="img/calendar10.png" width="100%">
+<img src="img/calendar11.png" width="100%">
+<img src="img/calendar12.png" width="100%">
+<img src="img/calendar13.png" width="100%">
+	  
+		
+</div>
+
+</div>	  
+  
+  
+   
+    <!--developer -->
+<div data-role="page" id="developer">
+<div data-role="header" data-position="fixed" >
+    <a></a>
+      <h1></h1>
+     <a href="#mainpage"  data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main" >
+<img src="img/developer.png" width="100%">
+
+		
+</div>
+
+</div>	  
+  
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  <!--OFFICES -->
+<div data-role="page" id="offices">
+<div data-role="header" data-position="fixed">
+   <a href=""  data-role="button" ></a>
+    <h1>UNITS</h1>
+      <a href="#mainpage"  data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
+     
+</div>
+
+<div data-role="content" role="main" >
+		
+		<div  style="background: #8bd0a6;  border-radius: 6px; ">
+		<div  id="img3" align="center" style="color: white; "> <img src="img/nearby.png" align="center" width="40%"  height="20%"/>  </div>
+		
+		<div style="color: white; font-weight:800; "  align="center"><p>"THE RISE OF THE CREATIVE MINDS"</p> </div>
+
+		</div>
+		
+
+
+
+	  <div data-role="collapsible-set" data-theme="g" >
+        <div  style="background: #005325" data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross" data-collapsed="true">
+          <h5>GUIDANCE AND ADMISSION UNIT</h5>
+          <p style="font-weight: 900;">PHILOSOPHY</p>
+			<p style="text-align:justify;">
+			The Guidance Program of Gordon College is based on the philosophical and psychological assumptions, which those individuals are positive, forward, moving basically good, rational, socialized, realistic, cooperative, constructive and trustworthy. They are ultimately self-actualizing. They know what is best for themselves under normal or ideal conditions. However, when problems and difficulties arise, the individual is lead to believe that he is unworthy which often lead to actions that may harm themselves and others. In this case, the individual must be helped to become a fully functioning person with optimal psychological adjustment and maturity. In other words, Gordon College students must be helped to move towards self-actualization or experience full humanness in through enjoyment of life in all this aspects. 
+			</p>
+			<p style="font-weight: 900;">VISION</p>
+			<p style="text-align:justify;">
+			The Guidance and Counseling Office shares and supports the vision-mission of Gordon College committed to the holistic development of students and society. The office envisions the Guidance Program to be an effective instrument in assisting students realized their full potentials and become effective members of society.
+			</p>
+			<p style="font-weight: 900;">MISSION</p>
+			<p style="text-align:justify;">
+			The Guidance and Counseling Office provides assistance and service to students’ developmental needs and help them become dynamic, competitive individuals imbued with values and guide them to be secured, forward-moving, rational, self-directed and fully functioning member of society.
+			</p>
+        </div>
+        <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+			 <h5>HEALTH AND SERVICES UNIT</h5>
+			<p style="font-weight: 900;">VISION</p>
+			<p style="text-align:justify;">
+			Through FAITH, EXCELLENCE AND SERVICE, health care services will be accessible and available towards the fulfillment of dreams and continuous operation of Gordon College.
+			</p>
+			<p style="font-weight: 900;">MISSION</p>
+			<p style="text-align:justify;">
+			School Clinic is committed to:
+			</p>
+			<p style="text-align:justify;">
+<p> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Quality nursing care to every member of the institution.</p>
+<p> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Ensure that educational potential will not be hampered by unmet health needs.</p>
+<p> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Provide and promote current health knowledge for awareness.</p>
+<p> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Set a positive attitude towards a healthy lifestyle.</p>
+
+			</p>
+			</div>
+        <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+          <h5>SCHOLARSHIP AND STUDENT ORGANIZATIONS UNIT </h5>
+          </div>
+		  <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+          <h5>STUDENT DISCIPLINE UNIT</h5>
+          <p style="text-align:justify;">Student Discipline refers to the judicious implementation o institutional rules and regulations governing student behavior and conduct.</p>
+		  <p style="text-align:justify;"> The HEI shall have gender and disability sensitive rules and regulations formulated in consultation with students and faculty and published in a student manual that is accessible and disseminated to students including students with disabilities, faculty and concurred in by parents. The rules and regulations for misconduct such as but not limited to acts vandalism, exaggerated utterances, irresponsible and libelous statements and other negative acts of militancy that threaten peace and order and private and public properties inside and outside the HEIs.</p>
+		  <p style="text-align:justify;">A discipline committee shall be established in all HEIs to ensure due process in dealing with student misconduct.</p>
+		
+        </div>
+		<div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+         <h5>STUDENT LINGKAGES AND REPLACEMENT UNIT</h5>
+
+        <p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Higher education Institution shall institute valid appraisal data of students for career and job placement. They shall have continuous follow-up and monitoring of student placement conducted on regular basis.</p>
+        <p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Higher education Institution shall maintain active networking with school, community, alumni and other relevant agencies for career and job placement of students.</p>
+        <p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Informative materials in accessible formats on career and job opportunities shall be provided and skills development programs shall be made available. </p>
+		<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>There shall be regular career seminars and job placement services available for the students.</p>
+		<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>There shall be mechanisms to institutionalize the link with industries.</p>
+		<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>The students must be informed of the timelines for the concerned HEI’s assistance in seeking career and job placement at least until a specified period of time.</p>
+	
+        </div>
+		<div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+         <h5>CULTURAL AFFAIRS UNIT </h5>
+		 <p style="font-weight: 900;">
+		 CULTURAL AFFAIRS UNIT
+		 </p>
+        <p style="text-align:justify;">
+		 is a functional arm of the Office of Student welfare Office and Services responsible in developing and enhancing Gordon College students’ talents, skills, abilities and values geared towards the appreciation and promotion of culture and the arts.
+		</p>
+		<p style="font-weight: 900;">
+		ORGANIZATION GOALS
+		</p>
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>	Foster and maintain harmonious relationships among Gordon College artists and talents through annual grand productions or shows.</p>
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>	Strengthen and support the artists’ growth and development through regular group meetings, practices, trainings and workshops.</p>
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>	Provide scholarship grants to artists who meet the qualification standards. </p>
+
+        </div>
+		 <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+         <h5>SPORTS DEVELOPMENT UNIT</h5>
+         <p style="font-weight: 900;">
+		OVERVIEW
+		</p>
+		 <p style="text-align:justify;">
+		 Gordon College envisions itself as a premier institution of higher learning committed to the holistic development of the human person and society. For the attainment of this vision, the college ensures that students are provided opportunities for academic and non-academic activities. One of the non-academic activities being proposed is sports development through as sound Sports Development Program.
+		 </p>
+		<p style="font-weight: 900;">
+		VISION
+		</p>
+		 <p style="text-align:justify;">
+		Excellence in sports
+		</p>
+		<p style="font-weight: 900;">
+		MISSION
+		</p>
+		 <p style="text-align:justify;">
+		To develop and produce highly competitive individuals that shall excel in various sports/athletic activities in the local, regional and national level competition.
+		</p>
+		<p style="font-weight: 900;">
+		OBJECTIVES
+		</p>
+		 <p style="text-align:justify;">
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>To organize a highly-disciplined but competitive student-athletes of Gordon College.</p>
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>To actively participate in various sports and competitions.</p>
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>To develop trainers and coaches by recommending them fir attendance to trainings/workshops for further education/enhancement.</p>
+		</p>
+        </div>
+		
+		
+		<div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+         <h5>STUDENT PUBLICATION UNIT</h5>
+         <p style="font-weight: 900;">
+		GENERAL PRINCIPLES AND OBJECTIVES
+		</p>
+		<p style="text-align:justify;">
+		The Forefront lives with its tagline, "Informing and Empowering." To be able to uphold with its battlecry for campus press freedom, the Editorial Board sets the following General Principles:
+		</p>
+		
+		
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a> The Forefront shall serve primarily as a newspaper of and for the students. It shall protect and promote the constitutionally mandated rights of students to free speech and of expression. In addition, it shall protect and promote the students' rights and welfare.</p>
+
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a> The Forefront, being a publication of the students devoted to the ideals of truth, shall pursue the mission of social transformation through active and responsible journalism.</p>
+
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a> The Forefront, being an independent institution, shall not be subjected to any form of censorship. In turn, the editors and staff shall see to it that the Forefront exercises academic and campus press freedom in accordance with the laws of the Republic of the Philippines. It shall also seek to protect and promote 
+press freedom by taking firm and assertive stance against elements endangering such right.</p>
+
+<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a> The editors shall respect the rights of other parties that are equally protected by the laws of the Republic of the Philippines, affording them the right and opportunity to refute or reply to criticism or comment hurled at them.</p>  
+
+
+		
+		
+        </div>
+      </div>
+
+
+</div>	
+</div>
+  
+    <!--STUDENT MANUAL -->
+<div data-role="page" id="studentmanual">
+<div data-role="header" data-position="fixed" >
+   <a href=""  data-role="button" ></a>
+     
+      <h1>HANDBOOK</h1>
+    <a href="#mainpage"  data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main" >
+	
+	
+		<div  style="background: #8bd0a6; border-radius: 6px">
+		<div align="center" style="color: white;"> <img src="img/quake.png" id="img3" align="center" width="40%"  height="20%"/>  </div>
+		</div>
+		<div ><img src="img/handbookgraphic1.png" width="100%"></div>
+		<div ><img src="img/handbookgraphic2.png" width="100%"></div>
+		<div ><img src="img/handbookgraphic3.png" width="100%"></div>
+			<div ><img src="img/handbookgraphic4.png" width="100%"></div>
+		<div  class="ui-body" id="manual" style="background: #2980B9; display:none;">
+		<div style="color: white; text-align: justify;">
+		<button style="background: #3498DB; color: WHITE;" data-theme="f"  id="closemanual"  ><<<<</button>
+		</div>
+		</div>
+	
+<a href="#wearinguniform" data-role="button"  data-icon="flat-menu" data-theme="b" style="background: #005325">WEARING OF UNIFORM</a>
+</div>
+
+<div>
+
+
+
+</div>
+</div>	
+
+
+    <!-- wearing uniform -->
+<div data-role="page" id="wearinguniform">
+<div data-role="header" data-position="fixed" >
+        <a href=""  data-role="button" ></a>
+      <h1>HANDBOOK</h1>
+    <a href="#studentmanual" data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main"  >
+					<div ><img src="img/infowearing.png" width="100%"></div>
+		<fieldset class="ui-grid-a" align="center" >
+        <div class="ui-block-a" style="color: white; font-size:200%"><a href="#male"  ><img src="img/male.png" width="70%" height="30%"/></a><br />  </div>
+        <div class="ui-block-b" style="color: white; font-size:200%"><a href="#female"   ><img src="img/female.png" width="70%" height="30%" /></a> <br />  </div>
+		</fieldset>
+				<fieldset class="ui-grid-a" align="center" >
+ <div class="ui-block-a" ALIGN="CENTER"><img src="img/pe.png" width="90%"   /></div>	
+ <div class="ui-block-b" ALIGN="CENTER"><img src="img/maong.png" width="90%"   /></div>	 
+
+		</fieldset>
+
+
+</div>
+	</div>
+
+
+
+      <!-- male -->
+<div data-role="page" id="male">
+<div data-role="header" data-position="fixed">
+      <a href=""  data-role="button" ></a>
+      <h1>HANDBOOK</h1>
+	  <a href="#wearinguniform" data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main" >
+  <div data-role="collapsible" data-theme="b"   data-content-theme="b" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-checkround" data-collapsed="false">
+         <h3>FOR MALE</h3>
+<img src="img/properhair.png" width="100%"/> <br />
+<img src="img/undershirt.png" width="100%"/> <br />
+<img src="img/shoes.png" width="100%"/>
+
+  </div>
+  
+
+</div>	
+</div>
+
+      <!-- femlae -->
+<div data-role="page" id="female">
+<div data-role="header" data-position="fixed">
+      <a href="#"  data-role="button" ></a>
+      <h1>HANDBOOK</h1>
+	        <a href="#wearinguniform"  data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main" >
+  <div data-role="collapsible" data-theme="b"   data-content-theme="b" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-checkround" data-collapsed="false">
+         <h3>FOR FEMALE:</h3>
+		  <img src="img/propermakeup.png" width="100%"/>
+		   <img src="img/earrings.png" width="100%"/>
+		 <img src="img/shoesfemale.png" width="100%"/>
+		 
+		 	
+</div>	
+</div>
+</div>
+
+  
+<!--SURVIVAL KIT -->
+<div data-role="page" id="survivalkit">
+<div data-role="header" data-position="fixed">
+      <a href="#" data-role="button" ></a>
+      <h1>SURVIVAL KIT</h1>
+	  <a href="#mainpage" data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
+   
+</div>
+<div data-role="content" role="main" >
+
+
+		
+		<div  style="background: #8bd0a6; border-radius:6px;">
+		<div align="center" style="color: white;"> <img src="img/weather.png" id="img3" align="center" width="40%"  height="20%"/>  </div>
+		</div>
+		<div ><img src="img/infosurvival.png" width="100%"> </div>
+<div  id="collegelife"   >
+<img src="img/together.png"  width="100%">	
+
+<div>
+<button  style="background: #005325" data-icon="carat-d" data-theme="g" id="showsuccessful"  >A SUCCESSFUL GC STUDENT</button>
+
+	<span class='zoom' id='ex3' style="display: none;">
+		<img src='img/successful1.png' width='100%'  alt='Daisy on the Ohoopee'/>
+	
+	</span>
+	</div>
+	<div align="center">
+	<img src='img/avail.png' width='100%'  alt='Daisy on the Ohoopee'/>
+</div>
+
+
+
+</div>	
+</div>
+</div>
+
+
+      <!-- tips 
+<div data-role="page" id="tips">
+<div data-role="header" data-position="fixed">
+      <a href="#"data-role="button" ></a>
+      <h1>SURVIVAL KIT</h1>
+	   <a href="#survivalkit"  data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main" >
+	
+
+
+<div data-role="collapsible" data-theme="b"  data-content-theme="b">
+		<h2>CHOOSE TIPS</h2>
+		<ul data-role="listview" >	
+	<div data-role="content"  >
+		<div class="content-primary">	
+			<ul data-role="listview" data-filter="true"  data-theme="b">
+			
+				<li><a href="#studyzone"  ><h2>STUDY ZONE</h2></a></li>
+			
+				<li><a href="#communicationkey" >	
+		<h2>COMMUNICATION IS KEY</h2>
+			</a></li>
+			
+				<li><a href="#classroom"   >
+				<h4 >MAXIMIZE CLASSROOM <br /> PARTICIPATION </h4>
+		
+			</a></li>
+			
+				<li><a href="#assignments"   >
+		
+				<h2>ASSIGNMENTS</h2>
+			</a></li>
+			
+				<li><a href="#notetaking"  >
+		<h2>NOTE TAKING</h2>
+						</a></li>
+			
+				<li><a href="#organization"  >
+		
+			<h2>ORGANIZING</h2>
+
+			</a></li>
+			
+		
+			
+			
+
+			</ul>
+			
+			</div>
+		
+		
+		
+		<ul>
+		</div>
+</div>
+</div>	
+</div>
+-->
+	  	
+
+
+
+
+ <!-- study zone -->
+<div data-role="page" id="studyzone">
+<div data-role="header" data-position="fixed">
+      <a href="#"  data-role="button" ></a>
+      <h1>SURVIVAL KIT</h1>
+   <a href="#tips"  data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main" >
+
+<div id="ui-body-test" class="ui-body ui-corner-al"  style="background: #2980B9">
+<div>
+<img src="img/SIQUIGRUOP.png" width="100%" height="20%">
+</div>
+<div data-role="collapsible-set" >
+       
+        <div data-role="collapsible" data-theme="f"   data-content-theme="f" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross" data-collapsed="false">
+         <h3>AT HOME:</h3>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Turn on your study mode! Devote a regular 2-3 hours a day to study in your zone.</p> 
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Select a well-lighted location with proper ventilation and lighting.  Ensure that it will be far from distractions. This place should fit your specific personality and learning style.</p>   
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Devote this place for studying and accomplishing school work</p> 
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Place your books, pens, papers, notebooks, laptops and other materials strategically located at arms-length so you have quick access to them. </p> 
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Drink water or juice to keep your brain active.</p> 
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Hold back the desire to do text messaging, play your Sony PlayStations, Xbox, internet surfing and computer games.  Know that this time is a priority investment for your future.</p> 
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Take 3-5 minute breaks every hour of designated study time to keep our mind fresh and relaxed. </p> 
+        </div>
+         <div data-role="collapsible" data-theme="f"  data-content-theme="f" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+         <h3>AT SCHOOL:</h3>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Find a study group or a study buddy who share the same aspirations as you do- eager to study the subjects and aims for the best marks in class. </p> 
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Places to really study would be the School Library, the Public Library, or the Student Lounge.  Keep your discussions at a minimum as other students are studying too.</p>   
+		</div>
+</div>
+</div>
+
+<br />
+
+</div>	
+</div>
+
+
+
+
+
+
+<!-- communication key -->
+<div data-role="page" id="communicationkey">
+<div data-role="header" data-position="fixed">
+      <a href="#" data-role="button" ></a>
+      <h1>SURVIVAL KIT</h1>
+     <a href="#tips" data-iconpos="notext" data-role="button" data-icon="back" data-theme="g" title="Home">Home</a>
+</div>
+<div data-role="content" role="main" >
+
+<div id="ui-body-test" class="ui-body ui-corner-al"  style="background: #2980B9">
+<div align="center">
+	  <img src="img/communication.png" width="80%" height="20%"/>
+</div>
+<div data-role="collapsible-set" >
+        <div data-role="collapsible" data-theme="f"   data-content-theme="f" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross"data-collapsed="false">
+         <h4>Administration/Instructors/<br />Professors:</h4>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Develop a successful relationship that is based on respect and honor.</p> 
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Express your thoughts in a polite manner when you miss a payment, failed to submit a document,you miss a class, exam, project or presentation. Immediately and genuinely ask for apology and ask for ways how you can make up.</p>   
+
+        </div>
+         <div data-role="collapsible" data-theme="f"  data-content-theme="f" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
+         <h4>School Security/School Maintenance/ <br /> School Medical Team</h4>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Greet and address them as Sir and Mam every time you see them. </p> 
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	They have ample training in keeping you, the facilities, admin and staff safe and secure.  Likewise, they will be the 1st to respond to your aid and coordinate for help in times of medical emergencies.</p>   
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	As a way of respecting our Maintenance Officers and an exercise of utmost discipline as college students, let us maintain the cleanliness and orderliness of classrooms and facilities. </p>
+		</div>
+</div>
+
+<p style="color: white; text-align: justify;">THANK YOU is a word that gives the greatest happiness.  Learn to say it all the time and you will make others happy as you will be happy too. </p>
+</div>
+
+<br />
+
+</div>	
+</div>
+  
+  
+  
+  
+  
+<!-- maximize classroom participation -->
+<div data-role="page" id="classroom">
+<div data-role="header" data-position="fixed">
+      <a href="#" data-role="button" ></a>
+      <h1>SURVIVAL KIT</h1>
+    <a href="#tips"  data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+</div>
+<div data-role="content" role="main" >
+
+<div id="ui-body-test" class="ui-body ui-corner-al"  style="background: #2980B9">
+<div align="center">
+	  <img src="img/parti.png" width="60%" height="20%"/>
+</div>
+<div data-role="collapsible-set" data-theme="f" data-content-theme="f">
+        <div data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
+        <h3>READ MORE...</h3>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Share your experiences in class discussions for they will enrich the class and add to your recitation/class participation grades. </p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Cordially ask for more examples when a concept is vague to you.  This will clarify the mystery you have inside your head.  If this doesn’t satisfy you, search the web!  You have that power at your fingertips. </p>
+
+        </div>
+</div>
+</div>
+</div>	
+</div>  
+  
+  
+
+
+
+<!-- assignments -->
+<div data-role="page" id="assignments">
+<div data-role="header" data-position="fixed">
+   <a href="#" data-role="button" ></a>
+      <h1>SURVIVAL KIT</h1>
+    <a href="#tips" data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+   
+</div>
+<div data-role="content" role="main" >
+
+<div id="ui-body-test" class="ui-body ui-corner-al"  style="background: #2980B9">
+<div align="center"> 
+	  <img src="img/imgassignments.png"  width="80%" height="20%"/>
+</div>
+
+<div data-role="collapsible-set" data-theme="f" data-content-theme="f">
+        <div data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
+        <h3>READ MORE...</h3>
+
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	WRITE IT DOWN!!!  Use your notebook, your planner, your calendar of activities, your notepad or memo pad. Put in in your cellphone and set an alarm for it.<br/>
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Do not trust this vital part of your grade to memory. <br/> 
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>We all know you will forget it when you see food, your crush or fall asleep. So WRITE IT DOWN!<br/>
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Assignments should be treated with love and care as this can make you or break you. 
+
+<button id="imponote">Note down all the important  <br />details: </button>
+<div id="importantnote" style="display: none; background: #2980B9; color: white; text-align:justify;">
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Topic / tasks <br/>
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Deadline <br/>
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Time of submission/ presentation <br/>
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Grading System <br/>
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>People you have to work with (when specified)
+</div>
+
+
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Utilize your study time to get things done and avoid cramming the daybefore the submission. <br />
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Read the course syllabus.  Chances are the topics you need to include in your report are located there. <br />
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Paper reports/Researches – print a day before the submission.  Come to school calm and confident knowing you avoided the cramming.  <br />
+<a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>Read! Read! Read! No one ever died of too much information for a report.Rather, the reports become way better. So go ahead and READ! 
+
+</div>
+</div>
+
+</div>
+
+
+
+</div>	
+</div>
+
+  
+  
+<!-- NOTE TAKING -->
+<div data-role="page" id="notetaking">
+<div data-role="header" data-position="fixed">
+     <a href="#" data-role="button" ></a>
+      <h1>SURVIVAL KIT</h1>
+    <a href="#tips" data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+   
+   
+</div>
+<div data-role="content" role="main" >
+
+<div id="ui-body-test" class="ui-body ui-corner-al"  style="background: #2980B9">
+<div align="center"> 
+	  <img src="img/notetaking.png"  width="60%" height="20%"/>
+</div>
+<div data-role="collapsible-set" data-theme="f" data-content-theme="f">
+        <div data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
+        <h3>READ MORE...</h3>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Designate a notebook for each subject so your notes will be easy to access.</p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Do not try to write down everything the teacher says.</p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Note the main points and explanations that will help you study for a quiz or an exam.</p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Get hold of copies of hand-outs and presentations as they are summaries of lessons.</p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	As soon as the class ends, take 1-2 minutes to scan your notes to refresh and understand what you have learned. This will keep it in your mind longer.  </p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Compare notes with classmates discuss topics you may have missed and failed to understand. </p>   
+        </div>
+</div>
+</div>
+</div>	
+</div> 
+
+
+
+<!-- organizing -->
+<div data-role="page" id="organization">
+<div data-role="header" data-position="fixed">
+    <a href="#" data-role="button" ></a>
+      <h1>SURVIVAL KIT</h1>
+    <a href="#tips"  data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
+   
+   
+   
+</div>
+<div data-role="content" role="main" >
+
+<div id="ui-body-test" class="ui-body ui-corner-al"  style="background: #2980B9">
+<div align="center"> 
+	  <img src="img/organizing2.png"  width="100%" height="20%"/>
+</div>
+<div data-role="collapsible-set" data-theme="f" data-content-theme="f">
+        <div data-role="collapsible" data-collapsed-icon="flat-time" data-expanded-icon="flat-cross" data-collapsed="false">
+        <h3>READ MORE...</h3>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Designate a notebook for each subject so your notes will be easy to access.</p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Do not try to write down everything the teacher says.</p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Note the main points and explanations that will help you study for a quiz or an exam.</p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Get hold of copies of hand-outs and presentations as they are summaries of lessons.</p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	As soon as the class ends, take 1-2 minutes to scan your notes to refresh and understand what you have learned. This will keep it in your mind longer.  </p>
+<p><a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="f" data-inline="true"></a>	Compare notes with classmates discuss topics you may have missed and failed to understand. </p>   
+        </div>
+</div>
+
+</div>  
+</div>	
+</div>  
+  
+  
+  
+ 

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <title>Nearby Malls</title>
+	 
+	   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+  	<style>
+		#map-page, #map-canvas { width: 100%; height: 100%; padding: 0; }
+	</style>
+  <script src="js/jquery.js"></script>
+  <script src="js/jquery.mobile-1.4.0-rc.1.js"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=true&libraries=places,weather"></script>
+ <script  >
+ 
+
+window.onload = getMyLocation;
+
+var map;
+function getMyLocation() {
+
+  if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(displayLocation);
+
+  } else {
+
+    alert("Oops, no geolocation support");
+
+  }
+
+}
+
+//This function is invoked asynchronously by the HTML5 geolocation API.
+
+function displayLocation(position) {
+
+
+
+  var latitude = position.coords.latitude;
+
+  var longitude = position.coords.longitude;
+
+
+
+  var latLng = new google.maps.LatLng(latitude, longitude);
+  showMap(latLng);
+
+  addNearByPlaces(latLng);
+
+  createMarker(latLng);
+
+
+  var div = document.getElementById("location");
+
+  div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude;
+
+
+   
+}
+function showMap(latLng) {
+
+
+
+  var mapOptions = {
+
+    center: latLng,
+
+    zoom: 16,
+
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+
+  };
+
+
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+}
+function addNearByPlaces(latLng) {
+
+  var nearByService = new google.maps.places.PlacesService(map);
+  var request = {
+
+    location: latLng,
+
+    radius: 500,
+
+    types: ['shopping_mall']
+  };
+
+  nearByService.nearbySearch(request, handleNearBySearchResults);
+}
+function handleNearBySearchResults(results, status) {
+
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+
+    for (var i = 0; i < results.length; i++) {
+
+      var place = results[i];
+
+      createMarker(place.geometry.location, place);
+    }
+  }
+}
+function createMarker(latLng, placeResult) {
+
+
+var icon = {
+
+    url: "img/malls.png", //url
+    scaledSize: new google.maps.Size(50, 50), //scaled size
+    origin: new google.maps.Point(0,0), //origin
+    anchor: new google.maps.Point(0, 0) //anchor
+};
+  var markerOptions = {
+
+    position: latLng,
+
+    map: map,
+    icon: icon,
+    animation: google.maps.Animation.DROP,
+
+    clickable: true
+  }
+
+
+
+
+  var marker = new google.maps.Marker(markerOptions);
+
+  if (placeResult) {
+
+    var content = placeResult.name+"<br/>"+placeResult.vicinity+"<br/>"+placeResult.types;
+
+    addInfoWindow(marker, latLng, content);
+  }
+  else {
+
+    var content = "You are here: " + latLng.lat() + ", " + latLng.lng();
+ 
+    addInfoWindow(marker, latLng, content);
+  }
+}
+function addInfoWindow(marker, latLng, content) {
+
+  var infoWindowOptions = {
+
+    content: content,
+
+    position: latLng
+
+  };
+  var infoWindow = new google.maps.InfoWindow(infoWindowOptions);
+  google.maps.event.addListener(marker, "click", function() {
+
+    infoWindow.open(map);
+
+  });
+
+}
+
+ 
+ </script>
+
+    <style type="text/css">
+
+    
+
+	
+      html, body, #map-canvas {
+    height: 100%;
+        margin: 3px;
+        padding: 0px
+      }
+      .controls {
+        margin-top: 16px;
+        border: 1px solid transparent;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        height: 32px;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      }
+
+      #pac-input {
+        background-color: #fff;
+        padding: 0 11px 0 13px;
+        width: 400px;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        text-overflow: ellipsis;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+        margin-left: -1px;
+        padding-left: 14px;  /* Regular padding-left + 1. */
+        width: 401px;
+      }
+
+      .pac-container {
+        font-family: Roboto;
+      }
+
+      #type-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #type-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+}
+
+ 
+	  
+    </style>
+	
+
+	
+  </head>
+
+  <body>
+
+ <div data-role="page" id="map-page"> 
+ 	<div data-role="header" data-theme="a" data-position="fixed">
+	<h1>Nearby Malls</h1>
+ <a  href="index.html" data-ajax="false" data-direction="reverse" data-role="button" data-transition="flip" data-theme="f" >< BACK</a>
+  </div>
+    <div id="location" style="display:none;">
+      Your location will go here.
+    </div>
+    <div id="map-canvas">
+    </div>
+	    </div>
+ </body>
+</html>
