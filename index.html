@@ -6,9 +6,7 @@
   <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
   <script src="js/jquery.js"></script>
   <script src="js/jquery.mobile-1.4.0-rc.1.js"></script>
-  
-  
-  
+
 	<script src='js/jquery.zoom.js'></script>
 		<script src='js/jquery.zoom.min.js'></script>
   <style>
@@ -171,6 +169,40 @@ $('#ex3').slideToggle(300);
  $('#ex3').show();
 });
 
+$('#guidance').click(function(){
+$('#ex5').slideToggle(300);
+ $('#ex5').show();
+});
+
+$('#cultural').click(function(){
+$('#ex6').slideToggle(300);
+ $('#ex6').show();
+});
+
+$('#dental').click(function(){
+$('#ex7').slideToggle(300);
+ $('#ex7').show();
+});
+
+$('#scholar').click(function(){
+$('#ex8').slideToggle(300);
+ $('#ex8').show();
+});
+
+$('#placement').click(function(){
+$('#ex9').slideToggle(300);
+ $('#ex9').show();
+});
+$('#ff').click(function(){
+$('#ex10').slideToggle(300);
+ $('#ex10').show();
+});
+
+$('#organization').click(function(){
+$('#ex11').slideToggle(300);
+ $('#ex11').show();
+});
+
 
     });
 	
@@ -193,9 +225,43 @@ $('#ex3').slideToggle(300);
 		$(document).ready(function(){
 			$('#ex1').zoom();
 			$('#ex2').zoom({ on:'grab' });
-			$('#ex3').zoom({ on:'click' });			 
+			$('#ex3').zoom({ on:'click' });		
+$('#ex5').zoom({ on:'click' });
+$('#ex6').zoom({ on:'click' });	
+$('#ex7').zoom({ on:'click' });	
+$('#ex8').zoom({ on:'click' });	
+$('#ex9').zoom({ on:'click' });		
+$('#ex10').zoom({ on:'click' });	
+$('#ex11').zoom({ on:'click' });					
 			$('#ex4').zoom({ on:'toggle' });
 		});
+		
+		
+		
+		
+		
+	</script>
+	
+	
+	<script>
+	$( document ).on( "click", ".show-page-loading-msg", function() {
+			var $this = $( this ),
+				theme = $this.jqmData( "theme" ) || $.mobile.loader.prototype.options.theme,
+				msgText = $this.jqmData( "msgtext" ) || $.mobile.loader.prototype.options.text,
+				textVisible = $this.jqmData( "textvisible" ) || $.mobile.loader.prototype.options.textVisible,
+				textonly = !!$this.jqmData( "textonly" );
+				html = $this.jqmData( "html" ) || "";
+			$.mobile.loading( "show", {
+					text: msgText,
+					textVisible: textVisible,
+					theme: theme,
+					textonly: textonly,
+					html: html
+			});
+		})
+	
+	
+	
 	</script>
   <script>
   
@@ -215,7 +281,7 @@ $('#ex3').slideToggle(300);
     });
 });
 
-
+/**
 function gg(){
 if (window.navigator.onLine) {
  window.open('http://www.gcians.uphero.com/login.php');
@@ -223,6 +289,7 @@ if (window.navigator.onLine) {
   alert("Offline")
 }
 }
+**/
 </script>
   
   
@@ -327,14 +394,15 @@ dd { font-size: 1.25em; margin: 1em 0 0; padding-bottom: 1em; border-bottom: 1px
   <div data-role="page" id="mainpage" >
 <!-- this panel -->
     <div data-role="panel" id="panel" data-position="right" data-display="overlay" style= "background: #2d3e50;">
-	  <a data-role="button" onclick="gg()"  data-ajax="false"  data-icon="cloud" data-theme="f">ONLINE</a>
+	  <a  href="http://www.gcians.uphero.com/login.php" data-role="button"  class="show-page-loading-msg" data-textvisible="true" data-msgtext="Please wait... while connecting to the internet" data-ajax="false"  data-icon="cloud" data-theme="f">ONLINE</a>
+
 	  <div data-role="collapsible" data-collapsed-icon="location" data-expanded-icon="carat-u" data-mini="true" data-theme="f">
     <h3>NEARBY PLACES</h3>
     <ul data-role="listview">
-        <li>  <a data-role="button" href="nearby.html" data-ajax="false"   data-icon="carat-l" data-theme="f">SCHOOLS</a></li>
-        <li><a data-role="button" href="restaurant.html" data-ajax="false"   data-icon="carat-l" data-theme="f">RESTAURANTS</a></li>
-        <li><a data-role="button" href="book.html" data-ajax="false"   data-icon="carat-l" data-theme="f">BOOK STORES</a></li>
-		  <li><a data-role="button" href="malls.html" data-ajax="false"   data-icon="carat-l" data-theme="f">MALLS</a></li>
+        <li>  <a data-role="button" href="nearby.html" data-ajax="false"   class="show-page-loading-msg" data-textvisible="true" data-msgtext="Please wait... while connecting to the internet" data-icon="carat-l" data-theme="f">SCHOOLS</a></li>
+        <li><a data-role="button" href="restaurant.html" data-ajax="false"   class="show-page-loading-msg" data-textvisible="true" data-msgtext="Please wait... while connecting to the internet" data-icon="carat-l" data-theme="f">RESTAURANTS</a></li>
+        <li><a data-role="button" href="book.html" data-ajax="false"   class="show-page-loading-msg" data-textvisible="true" data-msgtext="Please wait... while connecting to the internet" data-icon="carat-l" data-theme="f">BOOK STORES</a></li>
+		  <li><a data-role="button" href="malls.html" data-ajax="false"   class="show-page-loading-msg" data-textvisible="true" data-msgtext="Please wait... while connecting to the internet" data-icon="carat-l" data-theme="f">MALLS</a></li>
     </ul>
 </div>
 	  	
@@ -364,6 +432,7 @@ dd { font-size: 1.25em; margin: 1em 0 0; padding-bottom: 1em; border-bottom: 1px
     </div>
 
 <div data-role="content" role="main"  >
+
 <div align="center" style="margin-top:10%">
 		<img src="img/newbanner.png" width="100%" height="24%"/>
 </div>	
@@ -508,7 +577,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30c938', end
 <div data-role="page" id="calendar">
 <div data-role="header" data-position="fixed" >
     <a></a>
-      <h1></h1>
+	 <div align="center">
+	  <img src="img/gcosws.png" height="8%" width="70%">
+      </div>
      <a href="#mainpage"  data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
 </div>
 <div data-role="content" role="main"  data-theme="g">
@@ -537,12 +608,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30c938', end
 <div data-role="page" id="developer">
 <div data-role="header" data-position="fixed" >
     <a></a>
-      <h1></h1>
+      <div align="center">
+	  <img src="img/gcosws.png" height="8%" width="70%">
+      </div>
      <a href="#mainpage"  data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
 </div>
 <div data-role="content" role="main" >
+<div style="margin-top: 25%">
 <img src="img/developer.png" width="100%">
-
+</div>
 		
 </div>
 
@@ -561,7 +635,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30c938', end
 <div data-role="page" id="offices">
 <div data-role="header" data-position="fixed">
    <a href=""  data-role="button" ></a>
-    <h1>UNITS</h1>
+<div align="center">
+      <img src="img/gcosws.png" height="8%" width="70%"/>
+	  </div>
       <a href="#mainpage"  data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
      
 </div>
@@ -574,136 +650,67 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#30c938', end
 		<div style="color: white; font-weight:800; "  align="center"><p>"THE RISE OF THE CREATIVE MINDS"</p> </div>
 
 		</div>
-		
-
-
-
-	  <div data-role="collapsible-set" data-theme="g" >
-        <div  style="background: #005325" data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross" data-collapsed="true">
-          <h5>GUIDANCE AND ADMISSION UNIT</h5>
-          <p style="font-weight: 900;">PHILOSOPHY</p>
-			<p style="text-align:justify;">
-			The Guidance Program of Gordon College is based on the philosophical and psychological assumptions, which those individuals are positive, forward, moving basically good, rational, socialized, realistic, cooperative, constructive and trustworthy. They are ultimately self-actualizing. They know what is best for themselves under normal or ideal conditions. However, when problems and difficulties arise, the individual is lead to believe that he is unworthy which often lead to actions that may harm themselves and others. In this case, the individual must be helped to become a fully functioning person with optimal psychological adjustment and maturity. In other words, Gordon College students must be helped to move towards self-actualization or experience full humanness in through enjoyment of life in all this aspects. 
-			</p>
-			<p style="font-weight: 900;">VISION</p>
-			<p style="text-align:justify;">
-			The Guidance and Counseling Office shares and supports the vision-mission of Gordon College committed to the holistic development of students and society. The office envisions the Guidance Program to be an effective instrument in assisting students realized their full potentials and become effective members of society.
-			</p>
-			<p style="font-weight: 900;">MISSION</p>
-			<p style="text-align:justify;">
-			The Guidance and Counseling Office provides assistance and service to students’ developmental needs and help them become dynamic, competitive individuals imbued with values and guide them to be secured, forward-moving, rational, self-directed and fully functioning member of society.
-			</p>
-        </div>
-        <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
-			 <h5>HEALTH AND SERVICES UNIT</h5>
-			<p style="font-weight: 900;">VISION</p>
-			<p style="text-align:justify;">
-			Through FAITH, EXCELLENCE AND SERVICE, health care services will be accessible and available towards the fulfillment of dreams and continuous operation of Gordon College.
-			</p>
-			<p style="font-weight: 900;">MISSION</p>
-			<p style="text-align:justify;">
-			School Clinic is committed to:
-			</p>
-			<p style="text-align:justify;">
-<p> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Quality nursing care to every member of the institution.</p>
-<p> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Ensure that educational potential will not be hampered by unmet health needs.</p>
-<p> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Provide and promote current health knowledge for awareness.</p>
-<p> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Set a positive attitude towards a healthy lifestyle.</p>
-
-			</p>
-			</div>
-        <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
-          <h5>SCHOLARSHIP AND STUDENT ORGANIZATIONS UNIT </h5>
-          </div>
-		  <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
-          <h5>STUDENT DISCIPLINE UNIT</h5>
-          <p style="text-align:justify;">Student Discipline refers to the judicious implementation o institutional rules and regulations governing student behavior and conduct.</p>
-		  <p style="text-align:justify;"> The HEI shall have gender and disability sensitive rules and regulations formulated in consultation with students and faculty and published in a student manual that is accessible and disseminated to students including students with disabilities, faculty and concurred in by parents. The rules and regulations for misconduct such as but not limited to acts vandalism, exaggerated utterances, irresponsible and libelous statements and other negative acts of militancy that threaten peace and order and private and public properties inside and outside the HEIs.</p>
-		  <p style="text-align:justify;">A discipline committee shall be established in all HEIs to ensure due process in dealing with student misconduct.</p>
-		
-        </div>
-		<div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
-         <h5>STUDENT LINGKAGES AND REPLACEMENT UNIT</h5>
-
-        <p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Higher education Institution shall institute valid appraisal data of students for career and job placement. They shall have continuous follow-up and monitoring of student placement conducted on regular basis.</p>
-        <p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Higher education Institution shall maintain active networking with school, community, alumni and other relevant agencies for career and job placement of students.</p>
-        <p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>Informative materials in accessible formats on career and job opportunities shall be provided and skills development programs shall be made available. </p>
-		<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>There shall be regular career seminars and job placement services available for the students.</p>
-		<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>There shall be mechanisms to institutionalize the link with industries.</p>
-		<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>The students must be informed of the timelines for the concerned HEI’s assistance in seeking career and job placement at least until a specified period of time.</p>
+		<div align="center"><img src="img/unitsgraphics.png" width="100%"></div>
+<button  style="background: #005325" data-icon="carat-d" data-theme="g" id="guidance"  > GUIDANCE COUNSELING AND ADMISSION UNITS</button>
+<div align="center">
+	<span  class='zoom' id='ex5' style="display: none;">
+		<img src='img/guidance.png' width='100%'  alt='guidance'/>
 	
-        </div>
-		<div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
-         <h5>CULTURAL AFFAIRS UNIT </h5>
-		 <p style="font-weight: 900;">
-		 CULTURAL AFFAIRS UNIT
-		 </p>
-        <p style="text-align:justify;">
-		 is a functional arm of the Office of Student welfare Office and Services responsible in developing and enhancing Gordon College students’ talents, skills, abilities and values geared towards the appreciation and promotion of culture and the arts.
-		</p>
-		<p style="font-weight: 900;">
-		ORGANIZATION GOALS
-		</p>
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>	Foster and maintain harmonious relationships among Gordon College artists and talents through annual grand productions or shows.</p>
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>	Strengthen and support the artists’ growth and development through regular group meetings, practices, trainings and workshops.</p>
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>	Provide scholarship grants to artists who meet the qualification standards. </p>
+	</span>
+</div>
+<button  style="background: #005325" data-icon="carat-d" data-theme="g" id="cultural"  >CULTURAL AFFAIRS UNIT</button>
+<div align="center">
+	<span  class='zoom' id='ex6' style="display: none;">
+		<img src='img/cultural.png' width='100%'  alt='cultural'/>
+	
+	</span>
+</div>	 
 
-        </div>
-		 <div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
-         <h5>SPORTS DEVELOPMENT UNIT</h5>
-         <p style="font-weight: 900;">
-		OVERVIEW
-		</p>
-		 <p style="text-align:justify;">
-		 Gordon College envisions itself as a premier institution of higher learning committed to the holistic development of the human person and society. For the attainment of this vision, the college ensures that students are provided opportunities for academic and non-academic activities. One of the non-academic activities being proposed is sports development through as sound Sports Development Program.
-		 </p>
-		<p style="font-weight: 900;">
-		VISION
-		</p>
-		 <p style="text-align:justify;">
-		Excellence in sports
-		</p>
-		<p style="font-weight: 900;">
-		MISSION
-		</p>
-		 <p style="text-align:justify;">
-		To develop and produce highly competitive individuals that shall excel in various sports/athletic activities in the local, regional and national level competition.
-		</p>
-		<p style="font-weight: 900;">
-		OBJECTIVES
-		</p>
-		 <p style="text-align:justify;">
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>To organize a highly-disciplined but competitive student-athletes of Gordon College.</p>
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>To actively participate in various sports and competitions.</p>
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a>To develop trainers and coaches by recommending them fir attendance to trainings/workshops for further education/enhancement.</p>
-		</p>
-        </div>
-		
-		
-		<div data-role="collapsible" data-collapsed-icon="flat-calendar" data-expanded-icon="flat-cross">
-         <h5>STUDENT PUBLICATION UNIT</h5>
-         <p style="font-weight: 900;">
-		GENERAL PRINCIPLES AND OBJECTIVES
-		</p>
-		<p style="text-align:justify;">
-		The Forefront lives with its tagline, "Informing and Empowering." To be able to uphold with its battlecry for campus press freedom, the Editorial Board sets the following General Principles:
-		</p>
-		
-		
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a> The Forefront shall serve primarily as a newspaper of and for the students. It shall protect and promote the constitutionally mandated rights of students to free speech and of expression. In addition, it shall protect and promote the students' rights and welfare.</p>
+<button  style="background: #005325" data-icon="carat-d" data-theme="g" id="dental"  >DENTAL AND HEALTH SERVICES UNIT</button>
+<div align="center">
+	<span  class='zoom' id='ex7' style="display: none;">
+		<img src='img/dental.png' width='100%'  alt='dental'/>
+	
+	</span>
+</div>	
 
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a> The Forefront, being a publication of the students devoted to the ideals of truth, shall pursue the mission of social transformation through active and responsible journalism.</p>
-
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a> The Forefront, being an independent institution, shall not be subjected to any form of censorship. In turn, the editors and staff shall see to it that the Forefront exercises academic and campus press freedom in accordance with the laws of the Republic of the Philippines. It shall also seek to protect and promote 
-press freedom by taking firm and assertive stance against elements endangering such right.</p>
-
-<p style="text-align:justify;"> <a href="#" data-role="button" data-icon="flat-checkround" data-iconpos="notext" data-theme="e" data-inline="true"></a> The editors shall respect the rights of other parties that are equally protected by the laws of the Republic of the Philippines, affording them the right and opportunity to refute or reply to criticism or comment hurled at them.</p>  
+<button  style="background: #005325" data-icon="carat-d" data-theme="g" id="scholar"  >SCHOLAR UNIT</button>
+<div align="center">
+	<span  class='zoom' id='ex8' style="display: none;">
+		<img src='img/scholar.png' width='100%'  alt='scholar'/>
+	
+	</span>
+</div>	 
 
 
-		
-		
-        </div>
-      </div>
+<button  style="background: #005325" data-icon="carat-d" data-theme="g" id="placement"  >STUDENT PLACEMENT AND LNKAGES UNIT</button>
+<div align="center">
+	<span  class='zoom' id='ex9' style="display: none;">
+		<img src='img/placement.png' width='100%'  alt='placement'/>
+	
+	</span>
+</div>	 
+
+
+<button  style="background: #005325" data-icon="carat-d" data-theme="g" id="ff"  >STUDENT PUBLICATION UNIT</button>
+<div align="center">
+	<span  class='zoom' id='ex10' style="display: none;">
+		<img src='img/ff.png' width='100%'  alt='ff'/>
+	
+	</span>
+</div>	
+
+
+<button  style="background: #005325" data-icon="carat-d" data-theme="g" id="organization"  >STUDENT ORGANIZATION UNIT</button>
+<div align="center">
+	<span  class='zoom' id='ex11' style="display: none;">
+		<img src='img/organization.png' width='100%'  alt='organization'/>
+	
+	</span>
+</div>	 
+
+
+	 
 
 
 </div>	
@@ -712,9 +719,10 @@ press freedom by taking firm and assertive stance against elements endangering s
     <!--STUDENT MANUAL -->
 <div data-role="page" id="studentmanual">
 <div data-role="header" data-position="fixed" >
-   <a href=""  data-role="button" ></a>
-     
-      <h1>HANDBOOK</h1>
+   <a ></a>
+     <div align="center">
+      <img src="img/gcosws.png" height="8%" width="70%"/>
+	  </div>
     <a href="#mainpage"  data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
 </div>
 <div data-role="content" role="main" >
@@ -748,7 +756,9 @@ press freedom by taking firm and assertive stance against elements endangering s
 <div data-role="page" id="wearinguniform">
 <div data-role="header" data-position="fixed" >
         <a href=""  data-role="button" ></a>
-      <h1>HANDBOOK</h1>
+    <div align="center">
+      <img src="img/gcosws.png" height="8%" width="70%"/>
+	  </div>
     <a href="#studentmanual" data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
 </div>
 <div data-role="content" role="main"  >
@@ -773,7 +783,7 @@ press freedom by taking firm and assertive stance against elements endangering s
 <div data-role="page" id="male">
 <div data-role="header" data-position="fixed">
       <a href=""  data-role="button" ></a>
-      <h1>HANDBOOK</h1>
+     <img src="img/newbanner.png" width="100%" height="24%"/>
 	  <a href="#wearinguniform" data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
 </div>
 <div data-role="content" role="main" >
@@ -793,7 +803,7 @@ press freedom by taking firm and assertive stance against elements endangering s
 <div data-role="page" id="female">
 <div data-role="header" data-position="fixed">
       <a href="#"  data-role="button" ></a>
-      <h1>HANDBOOK</h1>
+    <img src="img/newbanner.png" width="100%" height="24%"/>
 	        <a href="#wearinguniform"  data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
 </div>
 <div data-role="content" role="main" >
@@ -812,8 +822,10 @@ press freedom by taking firm and assertive stance against elements endangering s
 <!--SURVIVAL KIT -->
 <div data-role="page" id="survivalkit">
 <div data-role="header" data-position="fixed">
-      <a href="#" data-role="button" ></a>
-      <h1>SURVIVAL KIT</h1>
+      <a href="#" ></a>
+<div align="center">
+      <img src="img/gcosws.png" height="8%" width="70%"/>
+	  </div>
 	  <a href="#mainpage" data-iconpos="notext" data-role="button" data-icon="home" data-theme="b" title="Home">Home</a>
    
 </div>
@@ -830,11 +842,12 @@ press freedom by taking firm and assertive stance against elements endangering s
 
 <div>
 <button  style="background: #005325" data-icon="carat-d" data-theme="g" id="showsuccessful"  >A SUCCESSFUL GC STUDENT</button>
-
-	<span class='zoom' id='ex3' style="display: none;">
+<div align="center">
+	<span  class='zoom' id='ex3' style="display: none;">
 		<img src='img/successful1.png' width='100%'  alt='Daisy on the Ohoopee'/>
 	
 	</span>
+</div>
 	</div>
 	<div align="center">
 	<img src='img/avail.png' width='100%'  alt='Daisy on the Ohoopee'/>
@@ -916,7 +929,7 @@ press freedom by taking firm and assertive stance against elements endangering s
 <div data-role="page" id="studyzone">
 <div data-role="header" data-position="fixed">
       <a href="#"  data-role="button" ></a>
-      <h1>SURVIVAL KIT</h1>
+   <img src="img/newbanner.png" width="100%" height="24%"/>
    <a href="#tips"  data-iconpos="notext" data-role="button" data-icon="back" data-theme="b" title="Home">Home</a>
 </div>
 <div data-role="content" role="main" >
